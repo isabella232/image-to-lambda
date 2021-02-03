@@ -9,10 +9,10 @@ import (
 	"os"
 	"strings"
 
-	"github.com/awslabs/aws-lambda-container-image-converter/img2lambda/extract"
-	"github.com/awslabs/aws-lambda-container-image-converter/img2lambda/publish"
-	"github.com/awslabs/aws-lambda-container-image-converter/img2lambda/types"
-	"github.com/awslabs/aws-lambda-container-image-converter/img2lambda/version"
+	"github.com/cultureamp/image-to-lambda/img2lambda/extract"
+	"github.com/cultureamp/image-to-lambda/img2lambda/publish"
+	"github.com/cultureamp/image-to-lambda/img2lambda/types"
+	"github.com/cultureamp/image-to-lambda/img2lambda/version"
 	"github.com/urfave/cli"
 )
 

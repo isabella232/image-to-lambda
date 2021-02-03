@@ -13,11 +13,11 @@ import (
 	"path/filepath"
 	"strings"
 
-	"github.com/awslabs/aws-lambda-container-image-converter/img2lambda/types"
 	"github.com/containers/image/v5/image"
 	"github.com/containers/image/v5/pkg/blobinfocache"
 	"github.com/containers/image/v5/transports/alltransports"
 	imgtypes "github.com/containers/image/v5/types"
+	"github.com/cultureamp/image-to-lambda/img2lambda/types"
 	zglob "github.com/mattn/go-zglob"
 	"github.com/mholt/archiver"
 	"github.com/pkg/errors"

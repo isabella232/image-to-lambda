@@ -1,4 +1,4 @@
-module github.com/awslabs/aws-lambda-container-image-converter
+module github.com/cultureamp/image-to-lambda
 
 go 1.13
 

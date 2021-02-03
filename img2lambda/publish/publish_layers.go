@@ -17,7 +17,7 @@ import (
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/service/lambda"
 	"github.com/aws/aws-sdk-go/service/lambda/lambdaiface"
-	"github.com/awslabs/aws-lambda-container-image-converter/img2lambda/types"
+	"github.com/cultureamp/image-to-lambda/img2lambda/types"
 )
 
 func PublishLambdaLayers(opts *types.PublishOptions, layers []types.LambdaLayer) (string, string, error) {

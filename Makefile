@@ -46,23 +46,23 @@ windows-build: $(WINDOWS_BINARY)
 
 .PHONY: docker-build
 docker-build:
-	docker run -v $(shell pwd):/usr/src/app/src/github.com/awslabs/aws-lambda-container-image-converter \
-		--workdir=/usr/src/app/src/github.com/awslabs/aws-lambda-container-image-converter \
+	docker run -v $(shell pwd):/usr/src/app/src/github.com/cultureamp/image-to-lambda \
+		--workdir=/usr/src/app/src/github.com/cultureamp/image-to-lambda \
 		--env GOPATH=/usr/src/app \
 		golang:1.13 make $(LINUX_BINARY)
-	docker run -v $(shell pwd):/usr/src/app/src/github.com/awslabs/aws-lambda-container-image-converter \
-		--workdir=/usr/src/app/src/github.com/awslabs/aws-lambda-container-image-converter \
+	docker run -v $(shell pwd):/usr/src/app/src/github.com/cultureamp/image-to-lambda \
+		--workdir=/usr/src/app/src/github.com/cultureamp/image-to-lambda \
 		--env GOPATH=/usr/src/app \
 		golang:1.13 make $(DARWIN_BINARY)
-	docker run -v $(shell pwd):/usr/src/app/src/github.com/awslabs/aws-lambda-container-image-converter \
-		--workdir=/usr/src/app/src/github.com/awslabs/aws-lambda-container-image-converter \
+	docker run -v $(shell pwd):/usr/src/app/src/github.com/cultureamp/image-to-lambda \
+		--workdir=/usr/src/app/src/github.com/cultureamp/image-to-lambda \
 		--env GOPATH=/usr/src/app \
 		golang:1.13 make $(WINDOWS_BINARY)
 
 .PHONY: docker-test
 docker-test:
-	docker run -v $(shell pwd):/usr/src/app/src/github.com/awslabs/aws-lambda-container-image-converter \
-		--workdir=/usr/src/app/src/github.com/awslabs/aws-lambda-container-image-converter \
+	docker run -v $(shell pwd):/usr/src/app/src/github.com/cultureamp/image-to-lambda \
+		--workdir=/usr/src/app/src/github.com/cultureamp/image-to-lambda \
 		--env GOPATH=/usr/src/app \
 		--env IMG_TOOL_RELEASE=$(IMG_TOOL_RELEASE) \
 		golang:1.13 make

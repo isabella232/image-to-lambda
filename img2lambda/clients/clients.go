@@ -7,7 +7,7 @@ import (
 	"github.com/aws/aws-sdk-go/aws/request"
 	"github.com/aws/aws-sdk-go/aws/session"
 	"github.com/aws/aws-sdk-go/service/lambda"
-	"github.com/awslabs/aws-lambda-container-image-converter/img2lambda/version"
+	"github.com/cultureamp/image-to-lambda/img2lambda/version"
 )
 
 var userAgentHandler = request.NamedHandler{

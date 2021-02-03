@@ -8,7 +8,7 @@ set -e
 # Builds the binary from source in the specified destination paths.
 mkdir -p $1
 
-PACKAGE_ROOT="github.com/awslabs/aws-lambda-container-image-converter/img2lambda"
+PACKAGE_ROOT="github.com/cultureamp/image-to-lambda/img2lambda"
 
 BUILDTAGS="containers_image_ostree_stub exclude_graphdriver_devicemapper exclude_graphdriver_overlay exclude_graphdriver_btrfs containers_image_openpgp"
 

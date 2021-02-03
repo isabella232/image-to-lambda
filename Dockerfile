@@ -3,12 +3,12 @@
 
 FROM golang:1.13 AS builder
 
-WORKDIR /go/src/github.com/awslabs/aws-lambda-container-image-converter
+WORKDIR /go/src/github.com/cultureamp/image-to-lambda
 
 COPY . ./
 
 RUN make install-tools && make
 
 FROM busybox:glibc
-COPY --from=builder /go/src/github.com/awslabs/aws-lambda-container-image-converter/bin/local/img2lambda /bin/img2lambda
+COPY --from=builder /go/src/github.com/cultureamp/image-to-lambda/bin/local/img2lambda /bin/img2lambda
 CMD [ "/bin/img2lambda" ]

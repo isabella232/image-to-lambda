@@ -4,7 +4,7 @@ package types
 
 import (
 	"github.com/aws/aws-sdk-go/service/lambda/lambdaiface"
-	"github.com/awslabs/aws-lambda-container-image-converter/img2lambda/clients"
+	"github.com/cultureamp/image-to-lambda/img2lambda/clients"
 )
 
 type LambdaDeploymentPackage struct {

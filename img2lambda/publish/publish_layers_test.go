@@ -15,8 +15,8 @@ import (
 
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/service/lambda"
-	"github.com/awslabs/aws-lambda-container-image-converter/img2lambda/internal/testing/mocks"
-	"github.com/awslabs/aws-lambda-container-image-converter/img2lambda/types"
+	"github.com/cultureamp/image-to-lambda/img2lambda/internal/testing/mocks"
+	"github.com/cultureamp/image-to-lambda/img2lambda/types"
 	"github.com/golang/mock/gomock"
 	"github.com/stretchr/testify/assert"
 )

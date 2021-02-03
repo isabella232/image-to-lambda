@@ -63,14 +63,14 @@ Note: To avoid any sensitive information being packaged into a Lambda function d
 
 #### Binaries
 
-Download pre-built binaries from the [Releases Page](https://github.com/awslabs/aws-lambda-container-image-converter/releases).
+Download pre-built binaries from the [Releases Page](https://github.com/cultureamp/image-to-lambda/releases).
 
 #### From Source
 
 With go 1.11+:
 
 ```
-$ git clone https://github.com/awslabs/aws-lambda-container-image-converter
+$ git clone https://github.com/cultureamp/image-to-lambda
 $ cd aws-lambda-container-image-converter
 $ make
 $ ./bin/local/img2lambda --help
