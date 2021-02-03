@@ -10,6 +10,7 @@ BINARY_NAME=img2lambda
 SOURCES := $(shell find $(SOURCEDIR) -name '*.go')
 LOCAL_BINARY := bin/local/img2lambda
 LINUX_BINARY := bin/linux-amd64/img2lambda
+LINUX_MUSLC_BINARY := bin/linux-muslc-amd64/img2lambda
 DARWIN_BINARY := bin/darwin-amd64/img2lambda
 WINDOWS_BINARY := bin/windows-amd64/img2lambda.exe
 LOCAL_PATH := $(ROOT)/scripts:${PATH}
@@ -67,8 +68,14 @@ docker-test:
 		--env IMG_TOOL_RELEASE=$(IMG_TOOL_RELEASE) \
 		golang:1.13 make
 
+.PHONY: extract-docker-build
+extract-docker-build: $(LOCAL_BINARY)
+	cp $(LOCAL_BINARY) /out
+	cp $(LOCAL_BINARY).md5 /out
+	cp $(LOCAL_BINARY).sha256 /out
+
 .PHONY: stage-release-binaries
-stage-release-binaries: $(LINUX_BINARY) $(DARWIN_BINARY) $(WINDOWS_BINARY)
+stage-release-binaries: $(LINUX_MUSLC_BINARY)
 
 $(WINDOWS_BINARY): $(SOURCES) GITCOMMIT_SHA
 	TARGET_GOOS=windows GOARCH=amd64 ./scripts/build_binary.sh ./bin/release-$(VERSION) windows-amd64-img2lambda.exe $(VERSION) $(shell cat GITCOMMIT_SHA)
@@ -81,6 +88,10 @@ $(LINUX_BINARY): $(SOURCES) GITCOMMIT_SHA
 $(DARWIN_BINARY): $(SOURCES) GITCOMMIT_SHA
 	TARGET_GOOS=darwin GOARCH=amd64 ./scripts/build_binary.sh ./bin/release-$(VERSION) darwin-amd64-img2lambda $(VERSION) $(shell cat GITCOMMIT_SHA)
 	@echo "Built img2lambda for darwin"
+
+$(LINUX_MUSLC_BINARY): $(SOURCES) GITCOMMIT_SHA
+	./scripts/build_alpine_binary.sh ./bin/release-$(VERSION) linux-muslc-amd64-img2lambda $(VERSION)
+	@echo "Built img2lambda for linux(muslc)"
 
 GITCOMMIT_SHA: $(GITFILES)
 	git rev-parse --short=7 HEAD > GITCOMMIT_SHA

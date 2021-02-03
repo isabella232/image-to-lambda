@@ -13,5 +13,6 @@
 
 bin/
 output/
+tmp/
 
 GITCOMMIT_SHA

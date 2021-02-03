@@ -1,0 +1,18 @@
+FROM golang:1.13-alpine
+
+VOLUME [ "/out" ]
+
+RUN apk add --no-cache \
+		  gcc \
+		  git \
+      linux-headers \
+		  make \
+		  musl-dev
+
+WORKDIR /go/src/github.com/cultureamp/image-to-lambda
+
+COPY . ./
+
+RUN make install-tools && make
+
+CMD [ "make", "extract-docker-build" ]
